@@ -1,7 +1,11 @@
 package id.irfanrev.vegefood.ui.feature.home
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.irfanrev.vegefood.core.domain.usecase.MealsUseCase

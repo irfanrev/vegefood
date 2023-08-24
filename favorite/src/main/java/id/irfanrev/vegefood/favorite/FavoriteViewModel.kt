@@ -1,11 +1,13 @@
-package id.irfanrev.vegefood.ui.feature.favorite
+package id.irfanrev.vegefood.favorite
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavHostController
 import id.irfanrev.vegefood.core.domain.usecase.MealsUseCase
-import id.irfanrev.vegefood.ui.feature.favorite.model.FavoriteUiState
+import id.irfanrev.vegefood.favorite.model.FavoriteUiState
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
@@ -39,6 +41,10 @@ class FavoriteViewModel(
                 }
             }
         }
+    }
+
+    fun navigateToDetail(navController: NavHostController, idMeal: String) {
+        navController.navigate("detail/$idMeal")
     }
 
 }
