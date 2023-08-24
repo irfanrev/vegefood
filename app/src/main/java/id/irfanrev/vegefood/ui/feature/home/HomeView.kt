@@ -1,16 +1,21 @@
 package id.irfanrev.vegefood.ui.feature.home
 
+import android.content.Intent
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import id.irfanrev.vegefood.core.domain.model.Meals
 import id.irfanrev.vegefood.ui.component.MealsItemCard
@@ -35,7 +40,26 @@ fun HomeViewContent(
     mealsViewModel: HomeViewModel,
     navController: NavController,
 ) {
-    Scaffold() {
+    val context = LocalContext.current
+    val intent = remember { Intent(context, Class.forName("id.irfanrev.vegefood.favorite.FavoriteActivity")) }
+    Scaffold(
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(55.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Text(text = "Vegefood", style = MaterialTheme.typography.headlineSmall)
+                IconButton(onClick = {
+                    context.startActivity(intent)
+                }) {
+                    Icon(Icons.Outlined.Favorite, contentDescription = null)
+                }
+            }
+        }
+    ) {
        val response = mealsViewModel.response.value
 
         when (response) {

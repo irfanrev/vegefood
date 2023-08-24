@@ -1,7 +1,6 @@
 package id.irfanrev.vegefood
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -16,8 +15,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import id.irfanrev.vegefood.ui.component.BottomBar
 import id.irfanrev.vegefood.ui.feature.detail.MealsDetailView
-import id.irfanrev.vegefood.ui.feature.favorite.FavoriteView
 import id.irfanrev.vegefood.ui.feature.home.HomeView
+import id.irfanrev.vegefood.ui.feature.profile.ProfileView
 import id.irfanrev.vegefood.ui.feature.splash.SplashView
 import id.irfanrev.vegefood.ui.navigation.MEALS_ID
 import id.irfanrev.vegefood.ui.navigation.Screen
@@ -29,7 +28,7 @@ fun RouteApp(
     navController: NavHostController = rememberNavController(),
 ) {
 
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
@@ -59,11 +58,11 @@ fun RouteApp(
                     navController = navController,
                 )
             }
-            composable(Screen.Favorite.route) {
-                FavoriteView(
-                    navController = navController,
-                )
-            }
+//            composable(Screen.Favorite.route) {
+//               FavoriteView(
+//                   navController = navController,
+//               )
+//            }
             composable(
                 route = Screen.Detail.route,
                 arguments = listOf(
@@ -77,6 +76,9 @@ fun RouteApp(
                     navController = navController,
                     mealsId = mealsId ?: ""
                 )
+            }
+            composable(Screen.Profile.route) {
+                ProfileView()
             }
         }
     }

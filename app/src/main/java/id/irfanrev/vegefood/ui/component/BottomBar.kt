@@ -3,6 +3,7 @@ package id.irfanrev.vegefood.ui.component
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -34,9 +35,9 @@ fun BottomBar(
                 screen = Screen.Home
             ),
             NavigationItem(
-                title = "Wishlist",
-                icon = Icons.Default.Favorite,
-                screen = Screen.Favorite
+                title = "Profile",
+                icon = Icons.Default.Person,
+                screen = Screen.Profile
             ),
         )
         NavigationBar() {

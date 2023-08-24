@@ -1,7 +1,6 @@
-package id.irfanrev.vegefood.ui.feature.favorite.model
+package id.irfanrev.vegefood.favorite.model
 
 import id.irfanrev.vegefood.core.domain.model.Meals
-import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
 
 sealed interface FavoriteUiState {
 
