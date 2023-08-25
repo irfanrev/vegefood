@@ -16,6 +16,7 @@ import androidx.navigation.navArgument
 import id.irfanrev.vegefood.ui.component.BottomBar
 import id.irfanrev.vegefood.ui.feature.detail.MealsDetailView
 import id.irfanrev.vegefood.ui.feature.home.HomeView
+import id.irfanrev.vegefood.ui.feature.home.SearchView
 import id.irfanrev.vegefood.ui.feature.profile.ProfileView
 import id.irfanrev.vegefood.ui.feature.splash.SplashView
 import id.irfanrev.vegefood.ui.navigation.MEALS_ID
@@ -36,6 +37,7 @@ fun RouteApp(
             val excludedRoutes = listOf(
                 Screen.Splash.route,
                 Screen.Detail.route,
+                Screen.Search.route,
             )
             if (currentRoute !in excludedRoutes) {
                 BottomBar(navController)
@@ -55,6 +57,11 @@ fun RouteApp(
             }
             composable(Screen.Home.route) {
                 HomeView(
+                    navController = navController,
+                )
+            }
+            composable(Screen.Search.route) {
+                SearchView(
                     navController = navController,
                 )
             }

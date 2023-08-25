@@ -36,4 +36,8 @@ class MealsUseCase(
     suspend fun deleteFavoriteMeals(idMeal: String) {
         mealsRepository.deleteFavoriteMeals(idMeal)
     }
+
+    fun searchMeals(search: String): Flow<List<MealsDetailModel>> {
+        return mealsRepository.searchMeals(search)
+    }
 }

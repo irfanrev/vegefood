@@ -19,4 +19,6 @@ interface MealsRepository {
     fun getMealsById(idMeal: String): Flow<Meals>
 
     suspend fun deleteFavoriteMeals(idMeal: String)
+
+    fun searchMeals(search: String): Flow<List<MealsDetailModel>>
 }
