@@ -46,7 +46,6 @@ class MealsRepositoryImpl(
         appExecutors.diskIO().execute {
             localDataSource.insertFavoriteMeals(mealsEntity)
         }
-        Log.d("MealsRepositoryImpl", "Berhasil ditambahkan ke database lokal")
     }
 
     override fun getMealsFavorite(): Flow<List<Meals>> {
@@ -63,6 +62,15 @@ class MealsRepositoryImpl(
 
     override suspend fun deleteFavoriteMeals(idMeal: String) {
         localDataSource.deleteFavoriteMeals(idMeal)
-        Log.d("MealsRepositoryImpl", "Berhasil dihapus dari database lokal")
+    }
+
+    override fun searchMeals(search: String): Flow<List<MealsDetailModel>> {
+        return flow {
+            emit(
+                mealsDataSource.searchMeals(
+                    search = search
+                ).meals.mappingToDetailModel()
+            )
+        }.flowOn(Dispatchers.IO)
     }
 }

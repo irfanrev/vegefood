@@ -2,6 +2,7 @@ package id.irfanrev.vegefood.ui.feature.home
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.LocalContext

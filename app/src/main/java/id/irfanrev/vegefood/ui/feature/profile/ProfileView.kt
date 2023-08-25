@@ -3,10 +3,10 @@ package id.irfanrev.vegefood.ui.feature.profile
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import id.irfanrev.vegefood.R
+import id.irfanrev.vegefood.ui.navigation.Screen
 
 @Composable
 fun ProfileView() {
@@ -24,7 +25,20 @@ fun ProfileView() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileViewContent() {
-    Scaffold() {
+    Scaffold(
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(55.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Text(text = "Profile", style = MaterialTheme.typography.headlineSmall)
+
+            }
+        }
+    ) {
         Column(
             modifier = Modifier
                 .padding(it)

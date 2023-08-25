@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -19,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import id.irfanrev.vegefood.core.domain.model.Meals
 import id.irfanrev.vegefood.ui.component.MealsItemCard
+import id.irfanrev.vegefood.ui.component.SearchMealsItemCard
 import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
 import id.irfanrev.vegefood.ui.navigation.Screen
 import org.koin.androidx.compose.koinViewModel
@@ -52,10 +54,17 @@ fun HomeViewContent(
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(text = "Vegefood", style = MaterialTheme.typography.headlineSmall)
-                IconButton(onClick = {
-                    context.startActivity(intent)
-                }) {
-                    Icon(Icons.Outlined.Favorite, contentDescription = null)
+                Row() {
+                    IconButton(onClick = {
+                        navController.navigate(Screen.Search.route)
+                    }) {
+                        Icon(Icons.Outlined.Search, contentDescription = null)
+                    }
+                    IconButton(onClick = {
+                        context.startActivity(intent)
+                    }) {
+                        Icon(Icons.Outlined.Favorite, contentDescription = null)
+                    }
                 }
             }
         }
@@ -83,6 +92,24 @@ fun HomeViewContent(
                             meals = meals,
                             onClick = {
                                 navController.navigate(Screen.Detail.createRoute(meals.id))
+                            }
+                        )
+                    }
+                }
+            }
+
+            is HomeUiState.SuccessSearch -> {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                        .padding(it)
+                ) {
+                    items(response.data) { meals ->
+                        SearchMealsItemCard(
+                            meals = meals,
+                            onClick = {
+                                navController.navigate(Screen.Detail.createRoute(meals.idMeal))
                             }
                         )
                     }

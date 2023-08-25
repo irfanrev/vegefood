@@ -17,4 +17,10 @@ class MealsDataSourceImpl(private val apiService: ApiService) : MealsDataSource 
             id = id
         )
     }
+
+    override suspend fun searchMeals(search: String): MealsDetailResponse {
+        return apiService.searchMeals(
+            search = search
+        )
+    }
 }
