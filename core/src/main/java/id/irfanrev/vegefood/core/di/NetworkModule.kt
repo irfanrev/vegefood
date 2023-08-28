@@ -1,6 +1,7 @@
 package id.irfanrev.vegefood.core.di
 
 import id.irfanrev.vegefood.core.data.source.remote.service.ApiService
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -22,10 +23,17 @@ val networkModule = module {
 }
 
 fun createOkHttp(): OkHttpClient {
+    val hostname = "themealdb.com"
+    val certificatePinner = CertificatePinner.Builder()
+        .add(hostname, "sha256/fE7WRZKFF4GE4LkOvZFU9iN5JSXg6roVAxA/iyO3ABw=")
+        .add(hostname, "sha256/81Wf12bcLlFHQAfJluxnzZ6Frg+oJ9PWY/Wrwur8viQ=")
+        .add(hostname, "sha256/hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc=")
+        .build()
     return OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
+        .certificatePinner(certificatePinner)
         .build()
 }
 
