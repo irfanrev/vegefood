@@ -5,7 +5,6 @@ import id.irfanrev.vegefood.core.domain.model.MealsDetailModel
 
 sealed interface HomeUiState {
 
-    object Idle: HomeUiState
     object Loading: HomeUiState
     object Empty: HomeUiState
 

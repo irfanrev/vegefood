@@ -2,4 +2,6 @@
     <string name="app_name">VegeFood</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_activity_favorite">FavoriteActivity</string>
+    <string name="btn_to_favorite">toFavorite</string>
+    <string name="vegefood">Vegefood</string>
 </resources>

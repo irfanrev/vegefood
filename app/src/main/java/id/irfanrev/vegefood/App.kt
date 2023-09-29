@@ -2,6 +2,8 @@ package id.irfanrev.vegefood
 
 import android.app.Application
 import id.irfanrev.vegefood.core.di.*
+import id.irfanrev.vegefood.di.useCaseModule
+import id.irfanrev.vegefood.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin

@@ -1,12 +1,10 @@
 package id.irfanrev.vegefood.ui.feature.home
 
 import android.content.Intent
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.*
@@ -15,10 +13,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
-import id.irfanrev.vegefood.core.domain.model.Meals
+import id.irfanrev.vegefood.R
 import id.irfanrev.vegefood.ui.component.MealsItemCard
 import id.irfanrev.vegefood.ui.component.SearchMealsItemCard
 import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
@@ -53,14 +52,16 @@ fun HomeViewContent(
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
-                Text(text = "Vegefood", style = MaterialTheme.typography.headlineSmall)
-                Row() {
+                Text(text = stringResource(R.string.vegefood), style = MaterialTheme.typography.headlineSmall)
+                Row {
                     IconButton(onClick = {
                         navController.navigate(Screen.Search.route)
                     }) {
                         Icon(Icons.Outlined.Search, contentDescription = null)
                     }
-                    IconButton(onClick = {
+                    IconButton(
+                        modifier = Modifier.testTag(stringResource(R.string.btn_to_favorite)),
+                        onClick = {
                         context.startActivity(intent)
                     }) {
                         Icon(Icons.Outlined.Favorite, contentDescription = null)
@@ -69,9 +70,8 @@ fun HomeViewContent(
             }
         }
     ) {
-       val response = mealsViewModel.response.value
 
-        when (response) {
+        when (val response = mealsViewModel.response.value) {
             is HomeUiState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier
