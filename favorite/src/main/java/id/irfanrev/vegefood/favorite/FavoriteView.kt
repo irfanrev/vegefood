@@ -7,14 +7,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import id.irfanrev.vegefood.RouteApp
-import id.irfanrev.vegefood.ui.component.MealsItemCard
 import id.irfanrev.vegefood.favorite.model.FavoriteUiState
+import id.irfanrev.vegefood.ui.component.MealsItemCard
 import id.irfanrev.vegefood.ui.navigation.Screen
 import org.koin.androidx.compose.koinViewModel
 
@@ -47,9 +43,8 @@ fun HomeViewContent(
             }
         }
     ) {
-        val response = favoriteViewModel.response.value
 
-        when (response) {
+        when (val response = favoriteViewModel.response.value) {
             is FavoriteUiState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier

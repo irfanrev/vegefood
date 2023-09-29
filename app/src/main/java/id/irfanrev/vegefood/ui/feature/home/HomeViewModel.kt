@@ -1,17 +1,14 @@
 package id.irfanrev.vegefood.ui.feature.home
 
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.platform.LocalContext
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.irfanrev.vegefood.core.domain.usecase.MealsUseCase
 import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -45,5 +42,4 @@ class HomeViewModel(
             }
         }
     }
-
 }

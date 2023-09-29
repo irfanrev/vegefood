@@ -16,7 +16,7 @@ import androidx.navigation.navArgument
 import id.irfanrev.vegefood.ui.component.BottomBar
 import id.irfanrev.vegefood.ui.feature.detail.MealsDetailView
 import id.irfanrev.vegefood.ui.feature.home.HomeView
-import id.irfanrev.vegefood.ui.feature.home.SearchView
+import id.irfanrev.vegefood.ui.feature.search.SearchView
 import id.irfanrev.vegefood.ui.feature.profile.ProfileView
 import id.irfanrev.vegefood.ui.feature.splash.SplashView
 import id.irfanrev.vegefood.ui.navigation.MEALS_ID
@@ -29,7 +29,7 @@ fun RouteApp(
     navController: NavHostController = rememberNavController(),
 ) {
 
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
@@ -77,7 +77,7 @@ fun RouteApp(
                         type = NavType.StringType
                     }
                 )
-            ) {
+            ) { it ->
                 val mealsId = it.arguments?.getString(MEALS_ID)
                 MealsDetailView(
                     navController = navController,

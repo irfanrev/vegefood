@@ -1,7 +1,5 @@
 package id.irfanrev.vegefood.core.domain.repository
 
-import id.irfanrev.vegefood.core.data.source.local.entity.MealsEntity
-import id.irfanrev.vegefood.core.data.source.remote.response.MealsDetail
 import id.irfanrev.vegefood.core.domain.model.Meals
 import id.irfanrev.vegefood.core.domain.model.MealsDetailModel
 import kotlinx.coroutines.flow.Flow

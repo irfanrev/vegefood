@@ -13,7 +13,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -49,11 +48,9 @@ fun MealsDetailView(
         }
     }
 
-    Scaffold() {
+    Scaffold {
 
-        val response = mealsDetailViewModel.response.value
-
-        when(response) {
+        when(val response = mealsDetailViewModel.response.value) {
             is MealsDetailUiState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier
@@ -151,7 +148,7 @@ fun ThumbnailImage(
     onBack: () -> Unit,
     onFavorite: () -> Unit,
 ) {
-    Box() {
+    Box {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(image)

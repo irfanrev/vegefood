@@ -58,4 +58,7 @@ android {
 dependencies {
     implementation project(":core")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // leak canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
 }

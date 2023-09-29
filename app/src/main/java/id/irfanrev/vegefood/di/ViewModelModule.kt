@@ -1,4 +1,4 @@
-package id.irfanrev.vegefood.core.di
+package id.irfanrev.vegefood.di
 
 import id.irfanrev.vegefood.ui.feature.detail.MealsDetailViewModel
 import id.irfanrev.vegefood.ui.feature.home.HomeViewModel

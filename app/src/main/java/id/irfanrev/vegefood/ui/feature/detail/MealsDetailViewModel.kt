@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.irfanrev.vegefood.core.domain.model.Meals
-import id.irfanrev.vegefood.core.domain.model.MealsDetailModel
 import id.irfanrev.vegefood.core.domain.usecase.MealsUseCase
 import id.irfanrev.vegefood.ui.feature.detail.model.MealsDetailUiState
 import kotlinx.coroutines.flow.catch
