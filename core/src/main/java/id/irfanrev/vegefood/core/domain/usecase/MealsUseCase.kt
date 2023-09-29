@@ -4,7 +4,6 @@ import id.irfanrev.vegefood.core.domain.model.Meals
 import id.irfanrev.vegefood.core.domain.model.MealsDetailModel
 import id.irfanrev.vegefood.core.domain.repository.MealsRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 
 class MealsUseCase(
     private val mealsRepository: MealsRepository

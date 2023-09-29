@@ -1,6 +1,5 @@
 package id.irfanrev.vegefood.core.data.source.remote
 
-import id.irfanrev.vegefood.core.data.source.remote.response.MealsDetail
 import id.irfanrev.vegefood.core.data.source.remote.response.MealsDetailResponse
 import id.irfanrev.vegefood.core.data.source.remote.response.MealsResponse
 import id.irfanrev.vegefood.core.data.source.remote.service.ApiService

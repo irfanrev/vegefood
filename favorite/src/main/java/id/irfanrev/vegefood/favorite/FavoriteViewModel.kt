@@ -2,7 +2,6 @@ package id.irfanrev.vegefood.favorite
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
@@ -41,10 +40,6 @@ class FavoriteViewModel(
                 }
             }
         }
-    }
-
-    fun navigateToDetail(navController: NavHostController, idMeal: String) {
-        navController.navigate("detail/$idMeal")
     }
 
 }

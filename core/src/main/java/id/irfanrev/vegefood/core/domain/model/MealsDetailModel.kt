@@ -1,7 +1,5 @@
 package id.irfanrev.vegefood.core.domain.model
 
-import com.google.gson.annotations.SerializedName
-
 data class MealsDetailModel(
     val idMeal: String,
     val strArea: String,

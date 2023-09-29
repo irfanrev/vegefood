@@ -1,4 +1,4 @@
-package id.irfanrev.vegefood.ui.feature.home
+package id.irfanrev.vegefood.ui.feature.search
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,8 +10,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,10 +27,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import id.irfanrev.vegefood.ui.component.MealsItemCard
 import id.irfanrev.vegefood.ui.component.SearchMealsItemCard
-import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
-import id.irfanrev.vegefood.ui.feature.search.SearchViewModel
 import id.irfanrev.vegefood.ui.feature.search.model.SearchUiState
 import id.irfanrev.vegefood.ui.navigation.Screen
 import org.koin.androidx.compose.koinViewModel

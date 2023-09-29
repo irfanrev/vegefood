@@ -4,7 +4,6 @@ import id.irfanrev.vegefood.core.domain.model.Meals
 
 sealed interface FavoriteUiState {
 
-    object Idle: FavoriteUiState
     object Loading: FavoriteUiState
     object Empty: FavoriteUiState
 

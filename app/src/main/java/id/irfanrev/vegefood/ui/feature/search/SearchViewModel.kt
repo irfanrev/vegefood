@@ -2,12 +2,10 @@ package id.irfanrev.vegefood.ui.feature.search
 
 import android.util.Log
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.irfanrev.vegefood.core.domain.usecase.MealsUseCase
-import id.irfanrev.vegefood.ui.feature.home.model.HomeUiState
 import id.irfanrev.vegefood.ui.feature.search.model.SearchUiState
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
